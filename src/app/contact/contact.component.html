@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <h1>
+                Contact US
+            </h1>
+            <h3>Fill the Form in a decent way!</h3>
+            <hr>
+            <form [formGroup]="contactform" (ngSubmit)="submitForm(contactform.value)">
+                <label class="mt-5">Name</label>
+                <input type="text" class="form-control" formControlName="name">
+
+                <label class="mt-5">Email</label>
+                <input type="text" class="form-control" formControlName="email">
+
+                <label class="mt-5">Mobile</label>
+                <input type="text" class="form-control" formControlName="mobile">
+
+                <label class="mt-5">Query</label>
+                <textarea class="form-control" cols="30" rows="10" formControlName="query"></textarea>
+
+                <button class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>
