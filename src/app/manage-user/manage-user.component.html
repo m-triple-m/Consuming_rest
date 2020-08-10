@@ -1,0 +1,65 @@
+<div class="container">
+    <mat-card class="bg-dark">
+        <div class="card-body text-light">
+
+            <h2>Registered Users Details</h2>
+            <hr>
+            <mat-accordion mutli>
+
+                <mat-expansion-panel *ngFor="let user of allUsers">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{user.name}}
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        {{user.email}}
+                      </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <h3>Name : {{user.name}}</h3>
+                    <h3>Username : {{user.username}}</h3>
+                    <h3>Email : {{user.email}}</h3>
+                    <h3>Password : {{user.password}}</h3>
+                    <button class="mt-5" mat-raised-button color="error" (click)="deleteUser(user._id)"> <fa-icon [icon]="delete_icon"></fa-icon> Delete</button>
+                    <button class="mt-5" mat-raised-button color="primary" (click)="toggleForm(user)"> <fa-icon [icon]="update_icon"></fa-icon> Update</button>
+                </mat-expansion-panel>
+
+            </mat-accordion>
+        </div>
+    </mat-card>
+
+    <mat-card class="bg-secondary mt-5" *ngIf="showform">
+        <div class="card-body">
+
+            <form [formGroup]="editform" (ngSubmit)="updateForm(editform.value)">
+
+                <mat-form-field appearance="outline" class="stretch">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="stretch">
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" formControlName="username">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="stretch">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="text" formControlName="password">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="stretch">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="text" formControlName="email">
+                </mat-form-field>
+
+                <!-- <mat-form-field appearance="outline" class="stretch">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput type="text" formControlName="address"></textarea>
+                </mat-form-field> -->
+
+                <button mat-raised-button color="accent" class="btn-block mt-5">Sign Me Up</button>
+            </form>
+
+        </div>
+    </mat-card>
+</div>
