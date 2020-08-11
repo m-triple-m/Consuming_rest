@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   signupform;
+
+  avatarName;
+  imgURL;
+
   constructor(private fb : FormBuilder, private userservice: UserService, private router: Router) { }
 
   ngOnInit(): void {
@@ -58,6 +62,49 @@ export class RegisterComponent implements OnInit {
 
   getControl(name){
     return this.signupform.controls[name];
+  }
+
+  uploadImage(event)
+  {
+    let files = event.target.files;
+    if(files.length===0)
+      return;
+
+    var mimeType=files[0].type;
+    if(mimeType.match(/image\/*/)==null)
+    { 
+      Swal.fire("Images Only");
+      return;
+    }
+    this.preview(event.target.files)
+    let formData=new FormData();
+    let selectedFile=files[0];
+    this.avatarName=selectedFile.name;
+    console.log(this.avatarName);
+    formData.append('image', selectedFile, selectedFile.name);
+    this.userservice.uploadImage(formData).subscribe(response=>
+      {
+      console.log(response.message)
+      })
+  }
+
+  preview(files) {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      Swal.fire({
+        title : 'Only Images are supported!!'
+      })
+      return;
+    }
+ 
+    var reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result;
+    }
   }
 
 }
