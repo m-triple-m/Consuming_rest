@@ -28,6 +28,7 @@
     "angularfire2": "^5.4.2",
     "firebase": "^7.17.1",
     "rxjs": "~6.5.4",
+    "socket.io-client": "^2.3.0",
     "sweetalert2": "^9.17.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

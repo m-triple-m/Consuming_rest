@@ -44,6 +44,9 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
+    console.log(this.avatarName);
+    formdata.avatar = this.avatarName;
+
     this.userservice.addUser(formdata).subscribe( (data) => {
       console.log(data);
       Swal.fire({
@@ -76,15 +79,15 @@ export class RegisterComponent implements OnInit {
       Swal.fire("Images Only");
       return;
     }
+
     this.preview(event.target.files)
     let formData=new FormData();
     let selectedFile=files[0];
     this.avatarName=selectedFile.name;
     console.log(this.avatarName);
     formData.append('image', selectedFile, selectedFile.name);
-    this.userservice.uploadImage(formData).subscribe(response=>
-      {
-      console.log(response.message)
+    this.userservice.uploadImage(formData).subscribe(response=>{
+      console.log(response);
       })
   }
 

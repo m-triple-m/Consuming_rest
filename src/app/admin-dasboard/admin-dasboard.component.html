@@ -1,10 +1,17 @@
-<!-- <h1>{{contact_data[0].email}}</h1> -->
+<div class="row mt-5">
+  <div class="col-md-4" style="padding: 50px 100px;">
+    <img [src]="'http://localhost:3000/user/'+currentUser.avatar" class="img-fluid rounded-circle">
+    <h3>Name : {{currentUser.name}}</h3>
+  </div>
+  <div class="col-md-8">
 
-<div>
-  <ul *ngFor="let record of contact_data">
-    <li>{{record.email}}</li>
-    <li>{{record.query}}</li>
-  </ul>
+  <div>
+    <ul *ngFor="let record of contact_data">
+      <li>{{record.email}}</li>
+      <li>{{record.query}}</li>
+    </ul>
+  </div>
+
+  <app-manage-user></app-manage-user>
+  </div>
 </div>
-
-<app-manage-user></app-manage-user>

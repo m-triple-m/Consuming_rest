@@ -38,6 +38,10 @@
                         </mat-form-field>
 
                         <button mat-raised-button color="accent" class="btn-block mt-5">Sign Me Up</button>
+
+                        <input type="file" (change)="uploadImage($event)">
+                        
+                        <img [src]="imgURL" *ngIf="imgURL">
                     </form>
                 </div>
             </div>

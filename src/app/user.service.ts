@@ -32,6 +32,10 @@ export class UserService {
     return this.http.put(this.url+'update/'+userid, data);
   }
 
+  uploadImage(file){
+    return this.http.post(this.url+'addimg',file)
+  }
+
 }
 
 

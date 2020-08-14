@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
 
         if(data){
           if(data['password'] == formdata['password']){
+
+
+            sessionStorage.setItem('user', JSON.stringify(data));
+
             console.log('login success');
             Swal.fire({
               icon : 'success',

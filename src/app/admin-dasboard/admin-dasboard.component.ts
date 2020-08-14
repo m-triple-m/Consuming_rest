@@ -10,9 +10,14 @@ import { ContactService } from '../contact.service';
 export class AdminDasboardComponent implements OnInit {
 
   contact_data;
+  currentUser;
+
   constructor(private contactservice: ContactService) { }
 
   ngOnInit(): void {
+
+    this.currentUser = JSON.parse(sessionStorage.getItem('user'));
+
     this.contactservice.fetchQueries().subscribe((data) => {
       console.log(data);
       this.contact_data = data;

@@ -20,6 +20,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManageUserComponent } from './manage-user/manage-user.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChatComponent } from './chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ContactComponent,
     AdminDasboardComponent,
     LoginComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
